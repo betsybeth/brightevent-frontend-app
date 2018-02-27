@@ -1,0 +1,7 @@
+
+export const actionTypes = {
+  REGISTER_USER:'REGISTER_USER_FULLIFIED',
+  LOGIN_USER:'LOGIN_USER_FULLIFIED'
+
+
+}
