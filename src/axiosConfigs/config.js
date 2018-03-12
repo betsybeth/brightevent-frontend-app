@@ -1,5 +1,5 @@
-import axios from 'axios'
-import store from '../store/reduxstore'
+import axios from 'axios';
+import store from '../store/reduxstore';
 
 
 const instance = axios.create({
@@ -14,10 +14,10 @@ const instance = axios.create({
 instance.interceptors.request.use(function(config){
   const { token_ } = store.getState().auth;
   if (token_){
-    config.headers.Authorization = '${token_}'
+    config.headers.Authorization = `${token_}`;
   }
   config.headers['Access-Control-Allow-Origin'] = '*';
-  return config
-})
+  return config;
+});
 
 export default instance;

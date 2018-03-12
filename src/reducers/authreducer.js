@@ -1,32 +1,30 @@
-
 export const initialState = {
+  userregistered: false,
   token_: null,
-  isuserregistered: false,
+  message: null,
+  error: '',
   userlogin:false
 }
 
 export default (state = initialState, action) => {
   switch (action.type){
-    case 'REGISTER_USER_FULLIFIED':
-      return {
+    case 'REGISTER_USER':
+        return {
+          ...state,
+          userregistered: true,
+          token_: action.payload.data.token,
+          message: action.payload.data.message,
+      };
+    case 'LOGIN_USER':
+      return{
         ...state,
         isuserregistered:true,
+        userlogin:true,
         token_:action.payload.data.token,
-        message:action.payload.data.message,
-      };
-    case 'REGISTER_USER_REJECTED':
-      return {
-      ...state,
-      message: action.payload.response.data.error,
-    };
-    case 'LOGIN_USER_FULLIFIED':
-    return{
-      ...state,
-      isuserregistered:true,
-      userlogin:true,
-      message:action.payload.data.message
-    }
+        message:action.payload.data.message
+      }
     default:
       return state;
+
   };
 };

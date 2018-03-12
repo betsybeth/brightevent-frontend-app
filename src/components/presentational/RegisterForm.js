@@ -1,26 +1,22 @@
-import React from 'react'
+import React from 'react';
 
-
-
-export const RegisterForm = (props) =>{
+const RegisterForm = (props) =>{
   return(
-    <div className='main-container'>
-      <form  className="form" onSubmit={props.onSubmit}>
-        <div className="form-group">
+      <form   className="form" onSubmit={props.onsignUpSubmit}>
           <h2>Sign Up</h2>
-          <h6>Type in your details to register</h6><br/>
-          <input className="form-control" type="text" name="name" value={props.registerData.name} onChange={props.onChange} placeholder="name"/><br/>
-          <input className="form-control" type="email" name="email" value={props.registerData.email} onChange={props.onChange} placeholder="email"/>
-          <br/>
-          <input className="form-control" type="password" name= "password" value={props.registerData.password} onChange={props.onChange} placeholder="password"/>
-          <br/>
-          <input className="form-control" type="password" name="confirm"  value={props.registerData.confirm} onChange={props.onChange} placeholder="confirm"/>
-          <br/>
-          <h6>Already have an account?<a href="">Sign In</a></h6>
-          <button type="submit" className="btn btn-primary">Sign Up</button>
-        </div>
-      </form>
-    </div>
+          <p>Type in your details to register</p>
+          <label>Name</label><br/>
+          <input className="form-control" type="text" name="name" value={props.name} onChange={props.onsignUpChange} placeholder="name" autoFocus="True"/>
+          <label>Email</label><br/>
+          <input  className="form-control" type="email" name="email" value={props.email} onChange={props.onsignUpChange} placeholder="email"/>
+          <label>Password</label><br/>
+          <input  className="form-control" type="password" name= "password" value={props.password} onChange={props.onsignUpChange} placeholder="password" required/>
+          <label>Confirm</label><br/>
+          <input  className="form-control" type="password" name="confirm" value={props.confirm} onChange={props.onsignUpChange} placeholder="confirm" required/>
+          <p><i>Already have an account? </i><a href="login">Sign In</a></p>
+          <button type="submit"  className='btn btn-lg btn-success btn-block'>Sign in</button>
+     </form>
+
 
   );
 };

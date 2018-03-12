@@ -1,21 +1,19 @@
-import React from 'react'
+import React from 'react';
 
 
-
-export const LoginForm = (props) => {
+const LoginForm = (props) =>{
     return(
-        <ul className="">
-          <li>
-            <form className="navbar-form" onSubmit={props.onSubmit}>
-              <input type="email" className="form-control login-input" value={props.loginData.email} onChange={props.onChange} placeholder="email"/>
-              <input type="password" className="form-control login-input" value={props.loginData.password} onChange={props.onChange} placeholder="password"/>
-              <button type="submit" className="btn btn-primary login-btn">Sign in</button>
-            </form>
-          </li>
-        </ul>
-
+      <form   className="form" onSubmit={props.onSignInSubmit}>
+          <h1 className="h1">Sign In </h1>
+          <p>Type in your details to Login</p>
+          <label>Email</label><br/>
+          <input  className="form-control" type="email" name="email" value={props.email} onChange={props.onSignInChange} placeholder="username" autoFocus="True"/>
+          <label>Password</label><br/>
+          <input  className="form-control" type="password" name="password"  value={props.password} onChange={props.onSignInChange} placeholder="password" required/>
+          <button type="submit"  className="btn btn-lg btn-success btn-block">Sign In</button>
+      </form>
     );
-}
+};
 
 
 export default LoginForm;
