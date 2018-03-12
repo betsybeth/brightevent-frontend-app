@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux'
-import store from './store/reduxstore'
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import store from './store/reduxstore';
+import Routes from './Routes.js'
 import ReactDOM from 'react-dom';
 import './index.css';
-import  RegisterContainer from './components/containers/RegisterContainer';
-
-class Home extends Component{
-  render(){
-    return(
-      <div>
-        <RegisterContainer />
-      </div>
-    );
-  }
-}
 
 
 
 
-ReactDOM.render( <Provider store={store}>
-  <Home />
+
+
+
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+        <Routes />
+    </BrowserRouter>
   </Provider>
-  , document.getElementById('root'));
+, document.getElementById('root'));
