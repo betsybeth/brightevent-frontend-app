@@ -8,13 +8,14 @@ import rootReducer from '../reducers/index';
 
 const persistConfig = {
   key: 'root',
+  version: 1,
   storage,
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const composeEnhancers = (process.env.NODE_ENV === 'development' && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-export const store = createStore(
+const store = createStore(
   persistedReducer,
   composeEnhancers(
     applyMiddleware(
@@ -23,6 +24,7 @@ export const store = createStore(
       promiseMiddleware()),
     )
   );
+
 
 persistStore(store)
 export default store;
