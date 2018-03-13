@@ -22,7 +22,7 @@ class Events extends Component {
     eventsInfo[event.target.name] = event.target.value
     this.setState(eventsInfo)
   }
-  handlecreateEventSubmit = (event) =>{
+  handlecreateEventSubmit = (event) => {
     event.preventDefault();
     const eventsDetails = {
       name:this.state.eventsInfo.name,
