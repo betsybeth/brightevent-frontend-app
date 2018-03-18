@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import * as actions from '../../actions/EventActions';
-import EventForm from '../presentational/EventForm'
+import Navbar from '../presentational/NavBar';
+import EventForm from '../presentational/EventForm';
+import EventDashboard from '../presentational/EventDashboard';
 
 
-class Events extends Component {
+
+class Dashboard extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -16,35 +20,35 @@ class Events extends Component {
         location:""
       }
     }
+    
   }
-  handlecreateEventChange = (event) => {
+  handleCreateEventChange = (event) => {
     let { eventsInfo } = this.state
     eventsInfo[event.target.name] = event.target.value
     this.setState(eventsInfo)
   }
-  handlecreateEventSubmit = (event) => {
+
+  handleCreateEventSubmit = (event) => {
     event.preventDefault();
     const eventsDetails = {
-      name:this.state.eventsInfo.name,
-      description:this.state.eventsInfo.description,
-      category:this.state.eventsInfo.category,
-      date_of_event:this.state.eventsInfo.date_of_event,
-      location:this.state.eventsInfo.location
+      name: this.state.eventsInfo.name,
+      description: this.state.eventsInfo.description,
+      category: this.state.eventsInfo.category,
+      date_of_event: this.state.eventsInfo.date_of_event,
+      location: this.state.eventsInfo.location
     }
     this.props.createEvent(eventsDetails)
-    this.setState(eventsDetails:"")
+    this.setState(eventsDetails)
   }
 
   render(){
 
-
     return(
       <div>
-         <EventForm
-           oncreateEventSubmit={this.handlecreateEventSubmit}
-           oncreateEventSubmit={this.handlecreateEventSubmit}
-           {...this.state.event}
-         />
+        <ToastContainer />
+        <Navbar />
+        <EventDashboard />
+        
       </div>
 
     );
@@ -53,6 +57,7 @@ class Events extends Component {
  const mapStateToProps = state => {
    return {
      userInfo: state.event,
+     token: state.auth.user.token_
 
    }
  }
@@ -62,4 +67,4 @@ class Events extends Component {
    }
  };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Events);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

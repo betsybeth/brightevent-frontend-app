@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store from '../store/reduxstore';
+
 
 
 const instance = axios.create({
@@ -12,7 +12,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(function(config){
-  const { token_ } = store.getState().auth;
+  const token_ = localStorage.getItem('token')
   if (token_){
     config.headers.Authorization = `${token_}`;
   }

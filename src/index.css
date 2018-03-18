@@ -1,13 +1,58 @@
 body{
 	width: auto;
-	margin: 0 1% 0 1%;
+	margin:0;
 	padding: 0 !important;
 	position: relative;
 	background: #43C6AC;
 	background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);
 	background: linear-gradient(to right, #F8FFAE, #43C6AC)
 }
+ /* Navbar styling */
+ .navbar{
+  width: 100%;
+	padding-top: 1%;
+	background-color: #143B33;
+  box-shadow: 0px 10px 3px #1B2F1C;
+}
+.navbar-brand{
+	font-family: 'Amiri', serif;
+	font-family: 'Bangers', cursive;
+	font-family: 'Alex Brush', cursive;
+  font-size: 120%;
+}
+.nav-item {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Amiri', serif;
+	font-family: 'Bangers', cursive;
+	font-family: 'Alex Brush', cursive;
+  font-size: 120%;
+  text-align: right;
+  padding-left: 80%;
 
+}
+.nav-item li {
+  float: right;
+}
+
+.nav-item li a {
+  color: white;
+  text-decoration: none;
+  
+}
+.nav-item li  a:hover{
+  color: green;
+}
+
+
+
+
+
+
+
+/* Form styling */
 .form {
   width: 100%;
   max-width: 330px;
@@ -34,3 +79,56 @@ body{
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+/* The dashboard */
+
+
+.container {
+  position: relative;
+  margin-top: 1%;
+  width: 100%;
+  height : 96vh;
+  background-color: white;
+}
+
+.add-button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: red;
+  border: 3px solid black;
+  text-align: center;
+}
+
+.btn {
+  max-width: 200px;
+  display: inline;
+  padding: 14px 20px;
+}
+
+.card-header {
+  text-align: center;
+};
+
+.card-deck .card {
+  min-width: 220px;
+}
+.list {
+  text-align: center;
+}
+.list-item{
+  list-style-type: none;
+}
+.border-top {
+   border-top: 1px solid #e5e5e5;
+   }
+.border-bottom {
+   border-bottom: 1px solid #e5e5e5; 
+  }
+
+.box-shadow { 
+  box-shadow: 0 .25rem .75rem;
+  background-color: white
+}
+
+

@@ -2,11 +2,11 @@ import initialState from './initialState'
 
  export default (state = initialState.eventState, action) => {
    switch(action.type){
-     case 'CREATE_EVENT':
+     case 'CREATE_EVENT_FULFILLED':
         return {
+          data:[],
           event : {
-            userlogin:true,
-            authenticated: true,
+            token:action.payload.token,
             createEvent:true,
           }
       };

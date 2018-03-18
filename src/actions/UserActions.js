@@ -6,7 +6,7 @@ export const registerUser = user => ({
     payload : instance.post('/register', user),
 });
 
-export const loginUser = loginInfo => ({
+export const loginUser = (loginInfo) => ({
     type:actionTypes.LOGIN_USER,
     payload:instance.post('/login', loginInfo),
 

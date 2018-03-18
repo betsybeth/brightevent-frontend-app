@@ -6,7 +6,6 @@ export default (state = initialState.entities , action) => {
       return {
         request : {
           loading: true
-
         }
       }
 
@@ -17,7 +16,6 @@ export default (state = initialState.entities , action) => {
         },
         user: {
           token : action.payload.data.token,
-          userregistered:true,
           message: action.payload.data.message,
         }
       }
@@ -26,7 +24,6 @@ export default (state = initialState.entities , action) => {
      return {
        user : {
          message: action.payload.response.data.message
-
        }
      }
 
@@ -42,7 +39,6 @@ export default (state = initialState.entities , action) => {
         user : {
           token_:action.payload.data.token,
           authenticated:true,
-          userlogin:true,
           message:action.payload.data.message
         },
         request : {
