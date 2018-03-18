@@ -1,16 +1,18 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import Authentication from './components/containers/Authentication';
-import Events from './components/containers/Events'
-import LoginForm from './components/presentational/LoginForm'
+import Login from './components/containers/Login'
+import Register from './components/containers/Register';
+import Dashboard from './components/containers/Dashboard';
 
 
 
 const Routes = () =>(
   <Switch>
-    <Route exact path="/" component={Authentication} />
-    <Route path="/login" component={LoginForm} />
-    <Route path='/events' component={Events} />
+
+    <Route  exact path="/" component={Login} />
+    <Route   path="/login" component={Login} />
+    <Route path="/register" component={Register} />  
+    <Route path='/dashboard' component={Dashboard} />
   </Switch>
 
 );
