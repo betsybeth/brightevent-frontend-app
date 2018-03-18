@@ -7,16 +7,15 @@ export default {
       error: ''
     },
     request: {
-      loading:false,
+      loading:true,
       error: '',
     }
   },
   eventState: {
     data: [],
     event : {
-      token:'',
-      authenticated: false,
       createEvent:false,
+      message:''
     },
     request: {
       error: '',
