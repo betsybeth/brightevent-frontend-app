@@ -20,17 +20,33 @@ const props = {
 
 
 describe('<RegisterForm', () => {
-  it('has two input', () => {
+  it('render one form', () => {
     const wrapper = shallow(<RegisterForm {...props} />);
-    expect(wrapper.find('Input')).to.have.length(4);
+    expect(wrapper.find('form')).to.have.length(1);
   });
-  it('has one row', () => {
+  it('has four inputs', () => {
     const wrapper = shallow(<RegisterForm {...props}/>);
-    expect(wrapper.find('Row')).to.have.length(1);
+    expect(wrapper.find('input')).to.have.length(4);
   });
-  it('renders four icons', () => {
+  it('has four labels', () => {
     const wrapper = shallow(<RegisterForm {...props}/>);
-    expect(wrapper.find('Icon')).to.have.length(4);
+    expect(wrapper.find('label')).to.have.length(4);
+  });
+  it('has one h2', () => {
+    const wrapper = shallow(<RegisterForm {...props}/>);
+    expect(wrapper.find('h2')).to.have.length(1);
+  });  
+  it('has two paragraph', () => {
+    const wrapper = shallow(<RegisterForm {...props}/>);
+    expect(wrapper.find('p')).to.have.length(2);
+  });   
+  it('has four labels', () => {
+    const wrapper = shallow(<RegisterForm {...props}/>);
+    expect(wrapper.find('label')).to.have.length(4);   
+  });
+  it('has four br', () => {
+    const wrapper = shallow(<RegisterForm {...props}/>);
+    expect(wrapper.find('br')).to.have.length(4);   
   });
 
 });
