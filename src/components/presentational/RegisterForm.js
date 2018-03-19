@@ -2,7 +2,7 @@ import React from 'react';
 
 const RegisterForm = (props) =>{
   return(
-      <form   className="form" onSubmit={props.onsignUpSubmit}>
+      <form className="form" onSubmit={props.onsignUpSubmit}>
           <h2>Sign Up</h2>
           <p>Type in your details to register</p>
           <label>Name</label><br/>
