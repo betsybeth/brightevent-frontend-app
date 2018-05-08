@@ -1,24 +1,32 @@
 export default {
   entities: {
     user: {
-      token: '',
-      message:'',
-      authenticated:false,
-      error: ''
+      data : {
+        token: '',
+        message:'',
+        authenticated: false,
+      },
+      request: {
+        loading: false,
+        error: '',
+      }
     },
-    request: {
-      loading:true,
-      error: '',
-    }
-  },
-  eventState: {
-    data: [],
-    event : {
-      createEvent:false,
-      message:''
+    events: {
+      data: [],
+      request: {
+        error: '',
+        message: '',
+        isSearch:'',
+        pages:'',
+        nextPage: '',
+        prevPage: '',
+      },
+      rsvp:{
+        data:[],
+        error:'',
+        message:''
+      }  
     },
-    request: {
-      error: '',
-    }
   }
-}
+};  
+  

@@ -16,10 +16,9 @@ class Register extends Component {
         password:"",
         confirm:""
       },
-      isRegister: false
     }
   }
-
+// callback functions
   handleSignUpChange = event => {
     let { registerData } = this.state
     registerData[event.target.name] = event.target.value
@@ -47,12 +46,9 @@ class Register extends Component {
 
 
  render(){
-   
+  // Enable passing props to the children component 
    return(
-    <div>
-      <Navbar
-        isRegister={this.state.isRegister}
-       />
+    <div> 
       <ToastContainer />
       <RegisterForm
         onsignUpSubmit={this.handleSignUpSubmit}
@@ -64,12 +60,13 @@ class Register extends Component {
    );
  }
 }
+// enable redux store to pass data to react as props
 const mapStateToProps = state => {
   return {
     userInfo: state.auth
 
   }
-}
+}// enable redux action to be passed to react as props  
 const mapDispatchToProps = dispatch => {
 return {
   registerUser: user => dispatch(actions.registerUser(user))

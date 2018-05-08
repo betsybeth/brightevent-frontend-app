@@ -4,7 +4,7 @@ import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
 import { sinon } from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
-import RegisterForm from '../../components/presentational/RegisterForm'
+import RegisterForm from '../../components/presentational/RegisterForm';
 
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -20,8 +20,10 @@ const props = {
 
 
 describe('<RegisterForm', () => {
+  let wrapper;
+  before;
   it('render one form', () => {
-    const wrapper = shallow(<RegisterForm {...props} />);
+    wrapper = shallow(<RegisterForm {...props} />);
     expect(wrapper.find('form')).to.have.length(1);
   });
   it('has four inputs', () => {

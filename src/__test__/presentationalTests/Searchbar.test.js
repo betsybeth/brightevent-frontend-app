@@ -4,7 +4,7 @@ import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
 import { sinon } from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
-import SearchBar from '../../components/presentational/SearchBar'
+import SearchBar from '../../components/presentational/SearchBar';
 
 
 Enzyme.configure({ adapter: new Adapter() });

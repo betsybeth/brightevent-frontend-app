@@ -13,10 +13,10 @@ class Login extends Component {
             loginData: {
                 email: "",
                 password:""
-              },    
+              },     
         }
     }
-
+//  callback function handles data for login
     handleSignInChange = e => {
         let { loginData } = this.state
         loginData[e.target.name] = e.target.value
@@ -29,9 +29,11 @@ class Login extends Component {
         email:this.state.loginData.email,
         password:this.state.loginData.password
     }
+    // dispatching of an action
     this.props.loginUser(loginInfo).then((response)=> {
         this.props.history.push('/dashboard');
         let token = response.value.data.token
+        // save the token that is given as response when the promise is completed
         localStorage.setItem('token', token)
         toast.success(response.value.data.message);   
     }).catch((error) => {
@@ -41,47 +43,41 @@ class Login extends Component {
     })
     this.setState(loginInfo)
     }
+    // handlelogout a user
     
 
 
-    render() {
-        const { loading } = this.props
-        console.log('asdfg,' ,this.props)
-        if (loading === true){
-            return (
-                <div className='sweet-loading'>
-                <RingLoader
-                  color={'#123abc'} 
-                  loading={this.props.userInfo.request.loading}
-                />
-              </div>
-            )
 
-        }
+    render() {
+        
         return (
           <div>
-            <Navbar/> 
-            <ToastContainer />  
+              {/* passing pf props to the children component */}
+              <ToastContainer />   
             <LoginForm
                 onSignInSubmit={this.handleSignInSubmit}
                 onSignInChange={this.handleSignInChange}
                 {...this.state.loginData}
-            />
+            />          
+            
+           
           </div>  
         )
     }   
 
 }
-
+// enable redux store to pass data to react as props
 const mapStateToProps = state => {
     return {
       userInfo: state.auth
   
     }
   }
+// enable redux action to be passed to react as props  
 const mapDispatchToProps = dispatch => {
     return {
-        loginUser: loginInfo => dispatch(actions.loginUser(loginInfo))
+        loginUser: loginInfo => dispatch(actions.loginUser(loginInfo)),
+        
     }
 };
     

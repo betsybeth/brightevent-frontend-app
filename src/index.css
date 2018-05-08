@@ -1,18 +1,29 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+
 body{
-	width: auto;
-	margin:0;
+  width: 100%;
 	padding: 0 !important;
-	position: relative;
-	background: #43C6AC;
-	background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);
-	background: linear-gradient(to right, #F8FFAE, #43C6AC)
+  z-index:1;
+  background-image: url("./events.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
+.container{
+  width: 100%;
+	padding: 0 !important;
+  z-index:1;
+  background-image: white;
+
+}
+
+
  /* Navbar styling */
  .navbar{
   width: 100%;
 	padding-top: 1%;
-	background-color: #143B33;
-  box-shadow: 0px 10px 3px #1B2F1C;
+	background-color:grey;
+  box-shadow: 0px 10px 3px  white;
 }
 .navbar-brand{
 	font-family: 'Amiri', serif;
@@ -53,11 +64,29 @@ body{
 
 
 /* Form styling */
+.logincard{
+  box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 50px 350px 0px 400px;
+    text-align: center;
+    background-color: white;
+}
+.registerCard{
+  box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 50px 350px 0px 400px;
+  text-align: center;
+  background-color: white;
+}
+
 .form {
   width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+}
+label {
+  color:white;
 }
 .form .form-control {
   position: relative;
@@ -80,55 +109,81 @@ body{
   border-top-right-radius: 0;
 }
 
+
 /* The dashboard */
 
-
-.container {
-  position: relative;
-  margin-top: 1%;
-  width: 100%;
-  height : 96vh;
-  background-color: white;
-}
-
 .add-button {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  background: red;
-  border: 3px solid black;
+  border-radius: 60%;
+  width: 60px;
+  height: 60px;
+  background: green;
   text-align: center;
+  color: white;
+  position: relative;
+  font-size: 35px;
 }
+.add-button a:hover{
+  color: white;
+  text-decoration: none;
+}
+.modal-dialog{
+  background-color: white;
+  margin:20% 0% 0% 0%;
+  z-index: 1;
+}
+#myModal{
+  background-color: grey;
+  opacity: 0.9;
+  padding:0 20px 0px 20px;
 
+}
+#myMod{
+  background-color: grey;
+  padding:0 20px 0px 20px;
+  opacity: 0.9;
+}
+  
 .btn {
   max-width: 200px;
   display: inline;
   padding: 14px 20px;
 }
-
-.card-header {
+.card {
+  box-shadow: 0 4px 25px 0 sienna;
+  max-width: 400px;
   text-align: center;
-};
-
-.card-deck .card {
-  min-width: 220px;
+  margin:0px 10px 10px 12px;
+  
 }
-.list {
+
+.card-title {
+  font-size: 20px;
+}
+.card-body {
   text-align: center;
-}
-.list-item{
-  list-style-type: none;
-}
-.border-top {
-   border-top: 1px solid #e5e5e5;
-   }
-.border-bottom {
-   border-bottom: 1px solid #e5e5e5; 
-  }
+  margin:10px 0 150px 0;
 
-.box-shadow { 
-  box-shadow: 0 .25rem .75rem;
-  background-color: white
 }
+.card-body, .gly{
+  padding:20px 20px 10px 20px;
+  font-size: 15px;
+  
+}
+.search{
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+/* Rsvp form */
+.rsvpcard{
+box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    padding: 0 50px 0px 80px;
+    margin: 50px 350px 0px 400px;
+    text-align: center;
+    background-color: white;
+}    
+
+
 
 
