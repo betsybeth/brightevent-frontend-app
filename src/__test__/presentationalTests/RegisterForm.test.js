@@ -7,6 +7,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import RegisterForm from '../../components/presentational/RegisterForm';
 
 
+
+
 Enzyme.configure({ adapter: new Adapter() });
 
 const props = {
