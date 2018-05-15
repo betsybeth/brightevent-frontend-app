@@ -1,28 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import eventImage from './../../events.jpg';
 
 
 
 
 const EventDashboard = (props) => {
   const { data } =  props;
-  const handlersvp = (id)=>{
-    props.handleRsvpClick(id);
-  };
-  const eventsAll = data && data.length >= 1 ? data.map((dataItem) => (
+  const eventsAll = data && data.length >= 1 ? data.map((dataItem) => (   
     <div className="card col-sm-4" key={dataItem.id}>
       <div className="card-body">
         <h1 className="card-title">{dataItem.name}</h1>
+        <img className="image"src={eventImage} alt='no internet connection'/>
         <h5 className="card-text">{dataItem.date_of_event}</h5>
         <h5 className="card-text">{dataItem.description}</h5>
         <h5 className="card-text">{dataItem.category}</h5>
-        <h5 className="card-text">{dataItem.location}</h5>
-        <span
-          className="gly glyphicon glyphicon-user"
-          key={dataItem.id}
-          onClick={()=>handlersvp(dataItem.id)}
-        ></span>
+        <h5 className="card-text">{dataItem.location}</h5>				        
+        <div class="dropdown">        
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        more details
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" key={dataItem.id}>
+            <p class="dropdown-item">
+              <Link to={`/eventDetails/${dataItem.id}`}>View Event</Link>
+            </p>
+          </div>
+        </div>       
         <span
           key={dataItem.id}
           className="gly glyphicon glyphicon-pencil"
@@ -36,10 +39,21 @@ const EventDashboard = (props) => {
     <div className="card col-sm-4" key={dataItem.id}>
       <div className="card-body">
         <h5 className="card-title">{dataItem.name}</h5>
+        <img className="image"src={eventImage} alt='no internet connection'/>
         <h6 className="card-text">{dataItem.date_of_event}</h6>
         <p className="card-text">{dataItem.description}</p>
         <p className="card-text">{dataItem.category}</p>
         <p className="card-text">{dataItem.location}</p>
+        <div class="dropdown">        
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        more details
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" key={dataItem.id}>
+            <p class="dropdown-item">
+              <Link to={`/eventDetails/${dataItem.id}`}>View Event</Link>
+            </p>
+          </div>
+        </div> 
         <span
           id={dataItem.id}
           className="gly glyphicon glyphicon-pencil"

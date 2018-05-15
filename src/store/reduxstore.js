@@ -1,20 +1,30 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import promiseMiddleware from 'redux-promise-middleware';
 import rootReducer from '../reducers/index';
 
-
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 const composeEnhancers = (process.env.NODE_ENV === 'development' && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-const store = createStore(
-  rootReducer,
+let store = createStore(
+  persistedReducer,
   composeEnhancers(
     applyMiddleware(
       thunk,
       logger,
-      promiseMiddleware()),
-    )
-  );
+      promiseMiddleware())
+  )
+);
+let persistor = persistStore(store);
+
+export {persistor, store};
 
 
-export default store;
+
+

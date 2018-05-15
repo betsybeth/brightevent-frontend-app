@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import * as actions from '../../actions/UserActions'
 import Navbar from '../presentational/NavBar';
 import LoginForm  from '../presentational/LoginForm';
+import ForgotPasswordForm from '../presentational/ForgotPasswordForm';
 
 class Login extends Component {
     constructor(props){
@@ -13,14 +14,19 @@ class Login extends Component {
             loginData: {
                 email: "",
                 password:""
-              },     
+              },
+            changePasswordInfo:{
+                old_password:'',
+                new_password:''
+            },
+            showForgotForm:false       
         }
     }
 //  callback function handles data for login
     handleSignInChange = e => {
         let { loginData } = this.state
         loginData[e.target.name] = e.target.value
-        this.setState(loginData)
+        this.setState({loginData, showForgotForm:false})
       }
     
     handleSignInSubmit = e => {
@@ -41,24 +47,39 @@ class Login extends Component {
         toast.error(error.response.data.message);
         }
     })
-    this.setState(loginInfo)
+    this.setState({loginInfo, showForgotForm:false})
     }
-    // handlelogout a user
+// handle forgot password
+    handleForgotpasswordChange = (event) => {
+        let changePasswordInfo = this.state
+        changePasswordInfo[event.target.name]= event.target.value
+       
+    }  
+
+    handleForgotPasswordSubmit = (event) => {
+        const changePasswordData = this.state.changePasswordInfo
+        event.preventDefault()
+        this.props.changePassword(changePasswordData).then((response) => {
+            toast.success(response.value.data.token)
+            this.props.history.push('/login')
+        })
+    }
     
 
 
 
     render() {
-        
+        const showForgotForm = this.state
         return (
           <div>
               {/* passing pf props to the children component */}
-              <ToastContainer />   
+              <ToastContainer /> 
             <LoginForm
                 onSignInSubmit={this.handleSignInSubmit}
                 onSignInChange={this.handleSignInChange}
                 {...this.state.loginData}
-            />          
+            />
+                    
             
            
           </div>  
@@ -77,6 +98,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         loginUser: loginInfo => dispatch(actions.loginUser(loginInfo)),
+        changePassword:changePasswordData => dispatch(actions.changePassword(changePasswordData))
         
     }
 };

@@ -28,9 +28,9 @@ describe('Renders the LoginForm component', () =>{
     const wrapper = shallow(<LoginForm {...props}/>);
     expect(wrapper.find('h1')).to.have.length(1);
   });
-  it('renders two paragraph ', () =>{
+  it('renders three paragraph ', () =>{
     const wrapper = shallow(<LoginForm {...props}/>);
-    expect(wrapper.find('p')).to.have.length(2);
+    expect(wrapper.find('p')).to.have.length(3);
   });
   it('renders two labels ', () =>{
     const wrapper = shallow(<LoginForm {...props}/>);

@@ -14,6 +14,8 @@ export default {
     events: {
       data: [],
       request: {
+        authenticated:true,
+        id:[],
         error: '',
         message: '',
         isSearch:'',

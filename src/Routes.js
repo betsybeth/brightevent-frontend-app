@@ -2,9 +2,12 @@ import React from 'react';
 import { Switch, Route } from 'react-router';
 import Login from './components/containers/Login';
 import Register from './components/containers/Register';
+import ForgotPasswordForm from './components/presentational/ForgotPasswordForm';
 import Dashboard from './components/containers/Dashboard';
 import EditEventForm from './components/presentational/EditEventForm';
+import EventDetails from './components/containers/EventDetails';
 import RsvpForm from './components/presentational/RsvpForm';
+
 
 const Routes = () => (
   <Switch>
@@ -13,7 +16,9 @@ const Routes = () => (
     <Route path="/register" component={Register} />
     <Route path="/dashboard" component={Dashboard} />
     <Route path="/edit-event" component={EditEventForm} />
-    <Route path="/rsvp" component={RsvpForm} />
+    <Route path="/forgot-password" component={ForgotPasswordForm} />
+    <Route path="/eventDetails/:id/add-rsvp/" component={RsvpForm}/>
+    <Route path="/eventDetails/:id" component={EventDetails} />
   </Switch>
 
 );

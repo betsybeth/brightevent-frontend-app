@@ -33,6 +33,6 @@ export const searchEvent = (searchData) => ({
 // Rsvp actions
 export const addRsvp = (id, rsvpInfo) => ({
   type:actionTypes.CREATE_RSVP,
-  payload:instance.post(`/events/${id}/create-rsvp`, rsvpInfo)
+  payload:instance.post(`/events/${id}/create-rsvp/`, rsvpInfo)
 });
 

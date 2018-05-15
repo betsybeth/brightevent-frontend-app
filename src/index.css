@@ -4,7 +4,7 @@ body{
   width: 100%;
 	padding: 0 !important;
   z-index:1;
-  background-image: url("./events.jpg");
+ background-color: whitesmoke;
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -15,6 +15,9 @@ body{
   z-index:1;
   background-image: white;
 
+}
+.image{
+  max-width:40%;
 }
 
 
@@ -70,6 +73,7 @@ body{
     margin: 50px 350px 0px 400px;
     text-align: center;
     background-color: white;
+    padding-bottom: 5%;
 }
 .registerCard{
   box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.2);
@@ -108,7 +112,10 @@ label {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+.password {
+  padding:20px 20px 10px 20px;
+  font-size: 15px;
+}
 
 /* The dashboard */
 
@@ -125,6 +132,7 @@ label {
 .add-button a:hover{
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 .modal-dialog{
   background-color: white;
@@ -149,19 +157,21 @@ label {
   padding: 14px 20px;
 }
 .card {
-  box-shadow: 0 4px 25px 0 sienna;
   max-width: 400px;
   text-align: center;
-  margin:0px 10px 10px 12px;
+  margin:0px 0px 5px 10px;
   
 }
-
+.card:hover{
+  box-shadow: 0 4px 100px 0 black;
+  transition: 0.3s;
+}
 .card-title {
   font-size: 20px;
 }
 .card-body {
   text-align: center;
-  margin:10px 0 150px 0;
+  margin:0px 0 50px 0;
 
 }
 .card-body, .gly{
@@ -176,14 +186,30 @@ label {
 }
 /* Rsvp form */
 .rsvpcard{
-box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2);
     max-width: 500px;
     padding: 0 50px 0px 80px;
     margin: 50px 350px 0px 400px;
     text-align: center;
-    background-color: white;
+    background-color: #ffffff;
 }    
+.singleEventCard{
+  max-width: 90%;
+  background-color: white;
+  max-height: 100%;
+  margin:4% 5% 0 5%;
+}
+.singleEventCard:hover{
+  box-shadow: 0 4px 19px 0 black;
+  transition: 0.3s;
+}
+.eventimage{
+  max-width:50%;
 
+}
+.btn-rsvp{
+  text-decoration: none;
+}
 
 
 

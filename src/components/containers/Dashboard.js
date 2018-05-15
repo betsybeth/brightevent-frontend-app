@@ -26,22 +26,25 @@ class Dashboard extends Component {
         location: ""
       },
       editData: {
+        id:"",
         name: "",
         description:"",
         category:"",
         date_of_event:"",
         location: ""
       },
-      rsvpInfo:{
+      rsvpinfo:{
         name:"",
         email:"",
-        phone_no:""
+        phone_no:"",
+        category:""
       },
       createEvent:false,
       EditEvent:false,
       displayAddModal: 'none',
       displayEditModal:'none',
       searchTerm:false,
+      showEvents:false
     }
     
     
@@ -50,8 +53,7 @@ class Dashboard extends Component {
   // lifecycle method used due to side effects results
   componentDidMount(){
       this.props.getEvents()
-    
-  }
+  };
   //  callback functions
   handleChange = (event) => {
     let { eventsInfo } = this.state
@@ -101,7 +103,10 @@ class Dashboard extends Component {
       location: this.state.editData.location
 
     }
-    const  current_id  = this.state.editData.id
+    const  current_id = this.state.editData.id
+      /* eslint-disable no-console */
+      console.log('>kklkdk',this.state.showEvents);
+      /* eslint-enable no-console */
     this.props.editEvent(current_id, editDetails)
     .then((response) => {
       toast.success(response.value.data.mesage)
@@ -122,6 +127,9 @@ class Dashboard extends Component {
   handleClick = (event, editData) => {
     // event.preventDefault()   
     this.setState({editData})
+      /* eslint-disable no-console */
+      console.log('>kklkdk',this.props.Event.request.id);
+      /* eslint-enable no-console */
     
   } 
   // handles deleting of a single event 
@@ -172,36 +180,6 @@ class Dashboard extends Component {
         toast.error(error.response.data.message) } }):
     this.props.getEvents();
   }
-  handlePagination = (event) => {
-    event.preventDefault()
-    this.props.getBucketPages()
-  }
-
-  // handles creating rsvps 
-  handleRsvpChange = (event) => {
-    let rsvpInfo = this.state
-    rsvpInfo[event.target.name] = event.target.value
-    this.setState({rsvpInfo})
-
-  }
-  handleRsvpSubmit = (event) => {
-    event.preventDefault()
-    const  rsvpData  ={
-      name:this.state.rsvpInfo.name,
-      email:this.state.rsvpInfo.email,
-      phone_no:this.state.rsvpInfo.phone_no,
-      category:this.state.rsvpInfo.category
-    }
-    const { current_id }  = this.state.editData.id
-    this.props.addRsvp(current_id, rsvpData)
-  
-
-  }
-  handleRsvpClick = (eventId) => {
-    console.log("surprisingly the id is", eventId)
-    this.props.history.push('/rsvp')
-  }
-
   render(){
     return(
       <div>
@@ -212,7 +190,6 @@ class Dashboard extends Component {
          />
         {/* passing of props to the children component  */}
         <EventDashboard
-          handleRsvpClick={this.handleRsvpClick}
           getEventPages={this.props.getEventPages}
           handleDeleteClick={this.handleDeleteClick}
           handleClick={this.handleClick}
@@ -242,18 +219,11 @@ class Dashboard extends Component {
           {...this.state.editData}
        
         />  
-        
       </div>
 
     );
-  }
-  renderRsvp(){
-    <RsvpForm
-    handleRsvpChange={this.handleRsvpChange}
-    handleRsvpSubmit={this.handleRsvpSubmit}
-     />
-  }
- }
+  } 
+} 
 //  Enable redux store state  to be passed as props
  const mapStateToProps = state => {
    return {
@@ -273,5 +243,5 @@ class Dashboard extends Component {
      getEventPages: url => dispatch(actions.getEventPages(url)),
      addRsvp:(id, rsvpData) => dispatch(actions.addRsvp(id, rsvpData))
    }
- };
+ }
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
