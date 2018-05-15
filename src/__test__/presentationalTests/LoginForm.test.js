@@ -12,8 +12,7 @@ const props = {
     email:'test@test.com',
     password:'12345678'
   }
-};
-
+}; 
 
 describe('Renders the LoginForm component', () =>{
   it('render one form', () =>{
