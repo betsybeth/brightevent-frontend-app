@@ -8,9 +8,6 @@ import { Link } from 'react-router-dom';
 import eventImage from './../../events.jpg';
 
 class EventDetails extends  Component {
-  constructor(props){
-    super(props);
-  }
   componentDidMount(){
     const {id} = this.props.match.params;
     this.props.getOneEvent(id);
