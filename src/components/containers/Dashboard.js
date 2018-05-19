@@ -44,7 +44,6 @@ class Dashboard extends Component {
       displayAddModal: 'none',
       displayEditModal:'none',
       searchTerm:false,
-      showEvents:false,
       showChangeForm:true
     }
     

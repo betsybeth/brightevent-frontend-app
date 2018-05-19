@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import * as actions from '../../actions/UserActions'
 import Navbar from '../presentational/NavBar';
 import LoginForm  from '../presentational/LoginForm';
-import ForgotPasswordForm from '../presentational/ForgotPasswordForm';
+import ChangePasswordForm from '../presentational/ChangePasswordForm';
 
 class Login extends Component {
     constructor(props){
@@ -17,16 +17,17 @@ class Login extends Component {
               },
             changePasswordInfo:{
                 old_password:'',
-                new_password:''
+                new_password:'',
+                confirm_password:''
             },
-            showForgotForm:false       
+            showChangeForm:false       
         }
     }
 //  callback function handles data for login
     handleSignInChange = e => {
         let { loginData } = this.state
         loginData[e.target.name] = e.target.value
-        this.setState({loginData, showForgotForm:false})
+        this.setState({loginData,showChangeForm:false})
       }
     
     handleSignInSubmit = e => {
@@ -47,39 +48,51 @@ class Login extends Component {
         toast.error(error.response.data.message);
         }
     })
-    this.setState({loginInfo, showForgotForm:false})
+    this.setState({loginInfo})
     }
+
 // handle forgot password
-    handleForgotpasswordChange = (event) => {
+    handleChangepasswordChange = (event) => {
         let changePasswordInfo = this.state
         changePasswordInfo[event.target.name]= event.target.value
+        this.setState({changePasswordInfo, showChangeForm:true}) 
        
-    }  
+    } 
+    
 
-    handleForgotPasswordSubmit = (event) => {
+    handleChangePasswordSubmit = (event) => {
         const changePasswordData = this.state.changePasswordInfo
         event.preventDefault()
         this.props.changePassword(changePasswordData).then((response) => {
             toast.success(response.value.data.token)
-            this.props.history.push('/login')
+            this.props.history.push('/dashboard')
         })
     }
-    
+    handleDisplayChangeForm = () => {
+        this.setState({ showChangeForm: true})
+    }
 
 
 
     render() {
-        const showForgotForm = this.state
+        const showChangeForm = this.state.showChangeForm
+        console.log('kdslks', showChangeForm)
         return (
           <div>
               {/* passing pf props to the children component */}
               <ToastContainer /> 
+              { showChangeForm ?
+              <ChangePasswordForm
+              handleChangePasswordSubmit={this.handleChangePasswordSubmit}
+              handleChangepasswordChange={this.handleChangepasswordChange}
+              handleDisplayChangeForm={this.handleDisplayChangeForm}
+              />: 
             <LoginForm
                 onSignInSubmit={this.handleSignInSubmit}
                 onSignInChange={this.handleSignInChange}
                 {...this.state.loginData}
-            />
-                    
+            />}
+                   
             
            
           </div>  
