@@ -8,6 +8,7 @@ import * as actionTypes from '../../constants/actionTypes';
 import instance from '../../axiosConfigs/config';
 
 
+
 const store = [thunk, promiseMiddleware()];
 const mockStore = configureMockStore(store);
 
@@ -44,6 +45,7 @@ describe('Authentication Actions', () => {
       expect(actionTypes).to.deep.equal(expectedActions);
     });
   });
+
   it('LOGIN_USER_FULFILLED action is dispatched', () => {
     const loginData = {
       email:'test@test.com',
@@ -53,6 +55,7 @@ describe('Authentication Actions', () => {
       token:'awesome',
       message: 'you are successfully login'
     };
+
     moxios.wait(() =>{
       const request = moxios.requests.mostRecent();
       request.respondWith({
@@ -67,5 +70,6 @@ describe('Authentication Actions', () => {
       expect(actionTypes).to.deep.equal(expectedActions);
 
     });
+
   });
 });
