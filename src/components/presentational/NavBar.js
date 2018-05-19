@@ -6,21 +6,21 @@ const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark">
       <a className="navbar-brand" href="">Bright Event App</a>
-      <ul className="nav-item">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Accounts
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+      {props.isLoggedIn ? 
+        <div className="navbardropdown dropdown">        
+          <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Accounts
+          </button>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <p className="dropdown-item" ><Link to='/'>Change Password</Link></p>
+            <p className="dropdown-item">Public Events</p>
+            <p className="dropdown-item"><Link to='/' onClick={props.handleLogout}>Logout</Link></p>
           </div>
-        </li>
-      </ul>
+        </div>:null}
     </nav>
   ); 
 };
+
    
 
 export default Navbar;
