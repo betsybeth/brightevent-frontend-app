@@ -82,7 +82,6 @@ export default (state = initialState.entities.user, action) => {
         token: null,
         message:action.payload.data.message,
         authenticated: true,
-        showForm:true
       },
     };    
   case 'LOGOUT_USER_FULFILLED':
