@@ -44,7 +44,8 @@ class Dashboard extends Component {
       displayAddModal: 'none',
       displayEditModal:'none',
       searchTerm:false,
-      showEvents:false
+      showEvents:false,
+      showChangeForm:true
     }
     
     
@@ -181,12 +182,15 @@ class Dashboard extends Component {
     this.props.getEvents();
   }
   render(){
+    const showChangeForm = this.state.showChangeForm
     return(
       <div>
         <ToastContainer />  
         <Navbar 
           isLoggedIn={this.props.auth.data.authenticated} 
-          handleLogout={this.handleLogout}       
+          handleLogout={this.handleLogout}
+          showChangeForm = {this.state.showChangeForm}
+       
          />
         {/* passing of props to the children component  */}
         <EventDashboard
