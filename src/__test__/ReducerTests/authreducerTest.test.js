@@ -138,5 +138,40 @@ describe ('Authentication Reducers', () => {
     };   
     const newState = AuthReducer(initialState, action);
     expect(newState).to.deep.equal(expectedState);
+  });
+  it('CASE: LOGOUT_USER_FULFILLED', () => {
+
+    const action = {
+      type: 'LOGOUT_USER_FULFILLED',
+      payload: {
+        response: {
+          data: {
+            token:'',
+            message:'logout fulfilled',
+            authenticated:false
+          }
+        }
+      }  
+    };
+  
+  
+    const expectedState = {
+      user: { 
+        token: '', 
+        message: 'logout fulfilled', 
+        authenticated: false, 
+        error: '' },
+      request: { 
+        loading: false, 
+        error: true },
+      data: { 
+        token:'',
+        message:'logout fulfilled',
+        authenticated:false 
+      }
+    };   
+    const newState = AuthReducer(initialState, action);
+    expect(newState).to.deep.equal(expectedState);
   });  
+
 });

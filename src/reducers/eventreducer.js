@@ -2,6 +2,7 @@ import initialState from './initialState';
 export default (state = initialState.entities.events, action) => {
   switch(action.type){
   case 'CREATE_EVENT_FULFILLED':
+  console.log("the state is ", action)
     return {
       ...state,
       data: state.data.concat({ ...action.payload.data }),
