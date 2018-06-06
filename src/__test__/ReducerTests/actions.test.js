@@ -1,10 +1,11 @@
+/* global describe it afterEach beforeEach:true */
+
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
 import { expect } from 'chai';
 import promiseMiddleware from 'redux-promise-middleware';
 import * as actions from '../../actions/UserActions';
-import * as actionTypes from '../../constants/actionTypes';
 import instance from '../../axiosConfigs/config';
 
 

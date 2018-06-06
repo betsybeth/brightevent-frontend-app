@@ -74,15 +74,6 @@ export default (state = initialState.entities.user, action) => {
         loading: false,
         error: true
       }
-    };
-  case 'CHANGE_PASSWORD_FULFILLED':
-    return {
-      ...state,
-      data : {
-        token: null,
-        message:action.payload.data.message,
-        authenticated: true,
-      },
     };    
   case 'LOGOUT_USER_FULFILLED':
     return {

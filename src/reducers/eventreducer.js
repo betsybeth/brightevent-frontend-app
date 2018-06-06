@@ -22,19 +22,25 @@ export default (state = initialState.entities.events, action) => {
     }; 
 
   case 'EDIT_EVENT_FULFILLED': {
-    let newState =state.data.filter(event => event.id !== action.payload.id);  
     return {
-      ...newState,
-      edit:[newState],
-      request: {
-        ...newState.request,
+      ...state,
+      /*eslint-disable no-unused-vars*/
+      data: state.data.map((event, i) => (
+        event.id === action.payload.id ? {
+          ...event,
+          ...action.payload
+        } :
+          event
+      ))
+      ,request: { 
+        ...state.request,
         message: action.payload.data.message
       }
     };
   }
   case 'EDIT_EVENT_REJECTED': {
     return {
-      edit:state.data.map(event => event.id !== action.payload.id),
+      ...state,
       request: {
         ...state.request,
         message:''
@@ -42,22 +48,40 @@ export default (state = initialState.entities.events, action) => {
     };
   }
   case 'GET_ALL_EVENTS_FULFILLED':
-    /* eslint-disable no-console */
-    console.log('>kklkdkllll',action.payload.data.results.map(event => event.id));
-    /* eslint-enable no-console */
     return {
       ...state,
       data: action.payload.data.results,
       request: {
         ...state.request,
-        id:[action.payload.data.results.map(event => event.id)],
         message: action.payload.data.results,
         pages: action.payload.data.pages,
         nextPage: action.payload.data.next_page,
         prevPage: action.payload.data.prev_page
       }
     };
+  case 'PUBLIC_EVENTS_FULFILLED':
+    return {
+      ...state,
+      data: action.payload.data.result,
+      request: {
+        ...state.request,
+        message: action.payload.data.result,
+        pages: action.payload.data.pages,
+        nextPage: action.payload.data.next_page,
+        prevPage: action.payload.data.prev_page,
+        authenticated:false,
+      }
+    };
   case 'GET_ONE_EVENT_FULFILLED':
+    return {
+      ...state,
+      request: {
+        ...state.request,
+        id:action.payload.data.id,
+        message:action.payload.data
+      }
+    };  
+  case 'ONE_PUBLIC_EVENT_FULFILLED':
     return {
       ...state,
       request: {
@@ -78,7 +102,19 @@ export default (state = initialState.entities.events, action) => {
         prevPage: action.payload.data.prev_page
       }
     };
-
+  case 'GET_PUBLIC_PAGES_FULFILLED':
+   
+    return {
+      ...state,
+      data: action.payload.data.result,
+      request: {
+        ...state.request,
+        pages: action.payload.data.pages,
+        nextPage: action.payload.data.next_page,
+        prevPage: action.payload.data.prev_page
+      }
+    };  
+  
   case 'GET_ALL_EVENTS_REJECTED':
     return {
       ...state,
@@ -95,6 +131,16 @@ export default (state = initialState.entities.events, action) => {
       request: {
         ...state.request,
         message: action.payload.data.result,
+        isSearch:true
+      }
+    };
+  case 'SEARCH_PUBLIC_EVENT_FULFILLED':
+    return {
+      ...state,
+      data:action.payload.data,
+      request: {
+        ...state.request,
+        message: action.payload.data,
         isSearch:true
       }
     };
@@ -124,11 +170,20 @@ export default (state = initialState.entities.events, action) => {
     return {
       ...state,
       rsvp: {
-        ...state.request,
+        ...state.rsvp,
         error:'',
         message:action.payload.data.message
       }
 
+    };
+  case 'GET_RSVP_FULFILLED':
+    return{
+      ...state,
+      rsvp:{
+        ...state.rsvp,
+        info:action.payload.data.results,      
+        message:action.payload.data.message
+      }
     };
   default:
     return state; 

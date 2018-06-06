@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 
 
@@ -12,11 +12,14 @@ const Navbar = (props) => {
     Accounts
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <p className="dropdown-item" ><Link to='/'>Change Password</Link></p>
-            <p className="dropdown-item">Public Events</p>
-            <p className="dropdown-item"><Link to='/' onClick={props.handleLogout}>Logout</Link></p>
+            <p><Link  className="dropdown-item" to='/dashboard'>Dashboard</Link></p>
+            <p><Link className="dropdown-item" to="/public-events">Public Events</Link></p>
+            <p><Link  className="dropdown-item" to='/' onClick={props.handleLogout}>Logout</Link></p>
           </div>
-        </div>:null}
+        </div>:<ul className=" nav navbar-nav mr-auto">
+          <li> <Link className="nav-item"to="/login">Login</Link> </li>
+          <li ><Link className="nav-item" to="/register">Create an account</Link></li>
+        </ul>}
     </nav>
   ); 
 };

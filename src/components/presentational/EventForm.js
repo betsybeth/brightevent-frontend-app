@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line no-unused-vars
 
 
 const EventForm = (props) => {
   return(     
     <div id="myModal" className="modal fade" role="dialog" style={{ display: props.displayModal }}>
-      <form className="form modal-content" onSubmit={props.handleCreateEventSubmit}>
-        <button type="button" className="close" data-dismiss="modal">&times;</button>
+      <form className="addEvent col-sm-4 modal-content" onSubmit={props.handleCreateEventSubmit}>
+        <button type="button" className="close" data-dismiss="modal" onClick={props.handleCloseAddModal}>&times;</button>
         <h2> Add Event </h2>
         <label>Event Name</label><br/>
         <input className="form-control" type="text" name="name" value={props.name} onChange={props.handleChange} placeholder="name" autoFocus="True"/>
@@ -24,8 +24,11 @@ const EventForm = (props) => {
         <input className="form-control"  type="datetime-local" name="date_of_event" value={props.date_of_event} onChange={props.handleChange} placeholder="YYYY-MM-DD"/>
         <label>Location</label><br/>
         <input className="form-control" type="text" name="location" value={props.location} onChange={props.handleChange} placeholder="location"/><br/>
-        <button type="submit" className="btn btn-sm btn-success btn-block">Create event</button>
-        <button type="button" className="btn btn btn-default" data-dismiss="modal">Close</button>
+        <div className='col-sm-12 modal-footer'>
+          <button type="submit" className=" col-sm-6 btn btn-sm btn-success btn-block">Create event</button>
+          <button type="button" className=" col-sm-6 btn btn btn-secondary" data-dismiss="modal" onClick={props.handleCloseAddModal}>Close</button>
+        </div>
+       
       </form>
     </div>   
 

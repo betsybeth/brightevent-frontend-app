@@ -14,17 +14,16 @@ export default {
     events: {
       data: [],
       request: {
-        authenticated:true,
-        id:[],
         error: '',
         message: '',
         isSearch:'',
         pages:'',
         nextPage: '',
         prevPage: '',
+        authenticated:false,
       },
       rsvp:{
-        data:[],
+        info:[],
         error:'',
         message:''
       }  

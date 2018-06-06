@@ -1,4 +1,5 @@
-import React from 'react';
+/* global describe it:true */
+import React from 'react'; // eslint-disable-line no-unused-vars
 import { expect } from 'chai';
 import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
@@ -20,7 +21,7 @@ const props = {
 describe('Renders the EventDashboard  component', () => {
   it('render divs ', () =>{
     const wrapper = shallow(<EventDashboard  {...props} />);
-    expect(wrapper.find('div')).to.have.length(6);
+    expect(wrapper.find('div')).to.have.length(7);
   });
   it('renders one input ', () =>{
     const wrapper = shallow(<EventDashboard  {...props}/>);

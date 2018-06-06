@@ -23,7 +23,7 @@ let store = createStore(
 );
 let persistor = persistStore(store);
 
-export {persistor, store};
+export { store, persistor };
 
 
 

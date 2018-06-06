@@ -1,4 +1,5 @@
-import React from 'react';
+/* global describe it:true */
+import React from 'react'; // eslint-disable-line no-unused-vars
 import { expect } from 'chai';
 import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';

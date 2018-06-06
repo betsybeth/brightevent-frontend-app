@@ -14,6 +14,7 @@ body{
 	padding: 0 !important;
   z-index:1;
   background-image: white;
+  margin:0 10% 10% 7%;
 
 }
 
@@ -32,33 +33,39 @@ body{
 	font-family: 'Alex Brush', cursive;
   font-size: 120%;
 }
+.nav{
+  padding: 0 5px 0 800px;
+
+}
 .nav-item {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
   font-family: 'Amiri', serif;
 	font-family: 'Bangers', cursive;
 	font-family: 'Alex Brush', cursive;
   font-size: 120%;
   text-align: right;
-  padding-left: 80%;
-
-}
-.nav-item li {
-  float: right;
-}
-
-.nav-item li a {
   color: white;
   text-decoration: none;
-  
+  margin:0 0 0 30px;
+  float: right;
+ 
+
 }
-.nav-item li  a:hover{
-  color: green;
+.nav, li a{
+  text-decoration: none;
+  color: black;
+  background-color: grey;
 }
 .navbardropdown{
   margin:0 75%;
+}
+.dropdown-item{
+  text-decoration: none;
+  list-style-type: none;
+}
+.dropdown-item:hover{
+  color:grey;
 }
 
 
@@ -81,14 +88,6 @@ body{
   margin: 50px 350px 0px 400px;
   text-align: center;
   background-color: white;
-}
-.ChangePasswordcard{
-  box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    margin: 50px 350px 0px 400px;
-    text-align: center;
-    background-color: white;
-    padding-bottom: 5%;
 }
 .form {
   width: 100%;
@@ -123,18 +122,28 @@ label {
   padding:20px 20px 10px 20px;
   font-size: 15px;
 }
+.editform{
+  max-width:100%;
+}
 
 /* The dashboard */
+.modal-dialog{
+  margin:200px 0 200px 0;
+}
+.modal-content{
+  background-color: white;
+}
 
 .add-button {
   border-radius: 60%;
   width: 60px;
   height: 60px;
-  background: green;
+  background: grey;
   text-align: center;
   color: white;
   position: relative;
   font-size: 35px;
+  margin-left:2%;
 }
 .add-button a:hover{
   color: white;
@@ -147,10 +156,9 @@ label {
   z-index: 1;
 }
 #myModal{
-  background-color: grey;
+  background-color: rgb(63, 61, 61);
   opacity: 0.9;
-  padding:0 20px 0px 20px;
-
+  position: fixed;
 }
 #myMod{
   background-color: grey;
@@ -163,6 +171,9 @@ label {
   display: inline;
   padding: 14px 20px;
 }
+.btn a:hover{
+  color: black;
+}
 .card {
   max-width: 350px;
   text-align: center;
@@ -170,16 +181,18 @@ label {
   padding:0 0 0 0 ;
 }
 .card:hover{
-  box-shadow: 0 4px 100px 0 black;
-  transition: 0.3s;
+  box-shadow: 0 4px 30px 0 black;
+  transition: 0.2s;
   cursor: pointer;
 }
 .card-title {
   font-size: 20px;
+  color:grey;
   
 }
 .card-text{
-  font-size:20px;
+  font-size:15px;
+  color:grey;
 }
 .middle{
   height: 5%;
@@ -198,7 +211,7 @@ label {
   
 }
 .card-h1{
-  font-size:2em;
+  font-size:20px;
 }
 .bottom {
   height: 40%;
@@ -210,11 +223,12 @@ label {
   font-size: 15px;
   
 }
-.search{
+/* .search{
   text-align: center;
   font-size: 30px;
   color: black;
-}
+
+} */
 /* Rsvp form */
 .rsvpcard{
     box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2);
@@ -225,22 +239,75 @@ label {
     background-color: #ffffff;
 }    
 .singleEventCard{
-  max-width: 90%;
+  max-width: 80%;
   background-color: white;
-  max-height: 100%;
-  margin:4% 5% 0 5%;
+  height:400px;
+  margin-left: 131px;
 }
 .singleEventCard:hover{
   box-shadow: 0 4px 19px 0 black;
   transition: 0.3s;
 }
+.btn-rsvp{
+  max-width:350px;
+  margin-left:30%;
+}
 .eventimage{
-  max-width:50%;
+  max-width:100%;
 
+}
+.rsvp{
+  text-align: right;
+  padding: 0 20% 0 0;
+  margin:0 0 10% 0;
+  height: 100px;
+  overflow-y: scroll;
 }
 .btn-rsvp{
   text-decoration: none;
+  
+}
+.addEvent{
+  text-align: center;
+  margin: 2% 10% 10% 30%;
+  position: fixed;
 }
 
+.modal-footer{
+  padding: 10px;
+}
 
+.page-item{
+  color: blue;
+}
+ .navpaginate{
+  margin-left: 30%;
+}
+.event{
+  text-align:center;
+  margin-right: 250px;
+  margin-left:514px;
+  margin-top:-163px;
+  position: sticky;
+}
+.date{
+  margin-left:14px;
+}
+.rowy{
+  position: absolute;
+  bottom: 6px;
+  height: 50px;
+  width: 90%;
+}
+.rsvpModal{
+  position:top;
+}
+.listRsvp{
+  margin-right:70px;
+}
+/*
+.eventdetails{
+  text-decoration: none;
+  list-style-type: none;
+} */
 

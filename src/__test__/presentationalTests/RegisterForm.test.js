@@ -1,8 +1,9 @@
-import React from 'react';
+/* global describe it:true */
+import React from 'react'; // eslint-disable-line no-unused-vars
 import { expect } from 'chai';
 import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
-import { sinon } from 'sinon';
+import { sinon } from 'sinon'; // eslint-disable-line no-unused-vars
 import Adapter from 'enzyme-adapter-react-16';
 import RegisterForm from '../../components/presentational/RegisterForm';
 
@@ -23,7 +24,6 @@ const props = {
 
 describe('<RegisterForm', () => {
   let wrapper;
-  before;
   it('render one form', () => {
     wrapper = shallow(<RegisterForm {...props} />);
     expect(wrapper.find('form')).to.have.length(1);

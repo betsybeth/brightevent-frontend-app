@@ -1,4 +1,5 @@
-import { actionTypes } from '../../constants/actionTypes';
+/* global describe it :true */
+
 import AuthReducer from '../../reducers/authreducer';
 import { expect } from 'chai';
 
@@ -144,12 +145,9 @@ describe ('Authentication Reducers', () => {
     const action = {
       type: 'LOGOUT_USER_FULFILLED',
       payload: {
-        response: {
-          data: {
-            token:'',
-            message:'logout fulfilled',
-            authenticated:false
-          }
+        data: {
+          message:'logout fulfilled',
+      
         }
       }  
     };
@@ -158,18 +156,19 @@ describe ('Authentication Reducers', () => {
     const expectedState = {
       user: { 
         token: '', 
-        message: 'logout fulfilled', 
+        message: '', 
         authenticated: false, 
         error: '' },
       request: { 
-        loading: false, 
-        error: true },
+        loading:true, 
+        error: '' },
       data: { 
-        token:'',
+        token:null,
         message:'logout fulfilled',
         authenticated:false 
       }
-    };   
+    }; 
+    
     const newState = AuthReducer(initialState, action);
     expect(newState).to.deep.equal(expectedState);
   });  

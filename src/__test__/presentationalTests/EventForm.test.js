@@ -1,8 +1,9 @@
-import React from 'react';
+/* global describe it:true */
+import React from 'react'; // eslint-disable-line no-unused-vars
 import { expect } from 'chai';
 import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
-import { sinon } from 'sinon';
+import { sinon } from 'sinon'; // eslint-disable-line no-unused-vars
 import Adapter from 'enzyme-adapter-react-16';
 import EventForm from '../../components/presentational/EventForm';
 

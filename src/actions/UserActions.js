@@ -15,7 +15,3 @@ export const logoutUser = () => ({
   type:actionTypes.LOGOUT_USER,
   payload:instance.post('/logout')
 });
-export const changePassword = (changePasswordData) => ({
-  type:actionTypes.CHANGE_PASSWORD,
-  payload:instance.post('change-password', changePasswordData)
-});

@@ -1,8 +1,9 @@
-import React from 'react';
+/* global describe it:true */
+import React from 'react'; // eslint-disable-line no-unused-vars
 import { expect } from 'chai';
 import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
-import { sinon } from 'sinon';
+import { sinon } from 'sinon'; // eslint-disable-line no-unused-vars
 import Adapter from 'enzyme-adapter-react-16';
 import LoginForm from '../../components/presentational/LoginForm';
 
@@ -29,7 +30,7 @@ describe('Renders the LoginForm component', () =>{
   });
   it('renders three paragraph ', () =>{
     const wrapper = shallow(<LoginForm {...props}/>);
-    expect(wrapper.find('p')).to.have.length(3);
+    expect(wrapper.find('p')).to.have.length(2);
   });
   it('renders two labels ', () =>{
     const wrapper = shallow(<LoginForm {...props}/>);

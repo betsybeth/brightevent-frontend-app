@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 
 
@@ -15,9 +15,6 @@ const LoginForm = (props) =>{
         <p>New User?<Link to="/register"> Sign Up</Link></p>
         <button type="submit"  className="btn btn-lg btn-success btn-block">Sign In</button>
       </form>
-      <div className='password col-sm-12'>
-        <p className='col-sm-12'>Reset Password</p>
-      </div>
     </div>  
       
   );
