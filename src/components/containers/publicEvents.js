@@ -101,10 +101,6 @@ class PublicEvents extends Component {
                         onClick={(e) => handlePublicPagination(prevPage, e)}
                         disabled={
                           prevPage <= 1 
-                            ? 
-                            true
-                            :
-                            false
                         }
                       >Prev</a></li>
                     <li className="page-item">
@@ -112,10 +108,6 @@ class PublicEvents extends Component {
                         onClick={(e) =>handlePublicPagination(nextPage, e)}
                         disabled={
                           nextPage <= 1 
-                            ? 
-                            true
-                            :
-                            false
                         }
                       >Next</a></li></ul></nav>:
                 null}</div>

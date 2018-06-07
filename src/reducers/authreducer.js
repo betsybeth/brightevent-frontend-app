@@ -47,7 +47,6 @@ export default (state = initialState.entities.user, action) => {
         loading: true     
       }
     };
-
   case 'LOGIN_USER_FULFILLED':
     return {
       ...state,
@@ -62,6 +61,8 @@ export default (state = initialState.entities.user, action) => {
         loading: false
       }
     };
+
+  
 
   case 'LOGIN_USER_REJECTED':
     return {

@@ -53,6 +53,7 @@ class Dashboard extends Component {
     this.props.getEvents();
      
   }
+  
   //  callback functions
   handleChange = (event) => {
     let { eventsInfo } = this.state;
@@ -74,7 +75,14 @@ class Dashboard extends Component {
       toast.success(response.value.data.message);
       // state is updated to none to close the modal
       this.setState({
-        displayAddModal: 'none'
+        displayAddModal: 'none', eventsInfo: {
+          id:'',
+          name: '',
+          description:'',
+          category:'',
+          date_of_event:'',
+          location: ''
+        }
       });
       this.props.getEvents();
     }).catch((error) => {
@@ -82,9 +90,10 @@ class Dashboard extends Component {
         toast.error(error.response.data.message);
       }
     });
-    this.setState({eventsDetails});
     
   }
+ 
+
   // callback function to enable putting of input in the forms
   handleEditEventChange = (event) => {
     const { editData } = this.state;
@@ -102,15 +111,13 @@ class Dashboard extends Component {
       location: this.state.editData.location
 
     };
-    const  current_id = this.state.editData.id;
-    this.props.editEvent(current_id, editDetails)
+    const  currentId = this.state.editData.id;
+    this.props.editEvent(currentId, editDetails)
       .then((response) => {
         toast.success(response.value.data.message);
         this.setState({
           displayEditModal: 'none'
         });
-    
-
       }).catch((error) => {
         if (error.response) {
           toast.error(error.response.data.message);
@@ -176,6 +183,7 @@ class Dashboard extends Component {
   handleSearchChange = (event) => {
     event.preventDefault();
     event.target.value ? this.props.searchEvent(event.target.value).then((response) => {
+      this.setState({searchTerm:true});
       toast.success(response.value.data.mesage);
     }).catch((error) => {
       if (error.response) {
@@ -201,11 +209,12 @@ class Dashboard extends Component {
           handleSearchChange={this.handleSearchChange}
           handleDisplayModal ={this.handleDisplayModal}
           handleDisplayEditModal={this.handleDisplayEditModal}
-          isSearch={this.props.Event.request.isSearch}
+          isSearch={this.props.Event.request.data}
           pages={this.props.Event.request.pages}
           nextPage={this.props.Event.request.nextPage}
           prevPage={this.props.Event.request.prevPage}
           {...this.state.eventsInfo}
+          searchTerm={this.state.searchTerm}
         
 
         />

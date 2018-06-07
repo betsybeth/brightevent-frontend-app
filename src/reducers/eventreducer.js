@@ -125,14 +125,14 @@ export default (state = initialState.entities.events, action) => {
         error: true
       }
     };
-  case 'SEARCH_EVENT_FULFILLED':
+  case 'SEARCH_EVENT':
     return {
       ...state,
       data:action.payload.data.result,
       request: {
         ...state.request,
         message: action.payload.data.result,
-        isSearch:true
+
       }
     };
   case 'SEARCH_PUBLIC_EVENT_FULFILLED':
