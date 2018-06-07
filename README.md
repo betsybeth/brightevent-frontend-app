@@ -23,7 +23,4 @@ An React-Redux  application for events
 #### Run it
 * run yarn start or npm start
 
-#### Working in Progress
-* Creating Rsvp
-* Categorizing Event according to location
 

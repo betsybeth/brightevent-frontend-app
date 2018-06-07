@@ -41,7 +41,8 @@ describe ('Authentication Reducers', () => {
         error: '' },
       data: { 
         token: 'awesome',
-        message: 'Successfully Registered' 
+        message: 'Successfully Registered' ,
+        authenticated: true, 
       } 
     };
     const newState = AuthReducer(initialState, action);

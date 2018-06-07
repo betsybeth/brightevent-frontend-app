@@ -25,7 +25,7 @@ describe('Renders the EventForm component', () => {
   });
   it('has three inputs', () =>{
     const wrapper = shallow(<EventForm {...props} />);
-    expect(wrapper.find('input')).to.have.length(3);
+    expect(wrapper.find('input')).to.have.length(4);
   });
   it('renders heading two ', () =>{
     const wrapper = shallow(<EventForm {...props}/>);
@@ -34,14 +34,6 @@ describe('Renders the EventForm component', () => {
   it('renders six br ', () =>{
     const wrapper = shallow(<EventForm {...props}/>);
     expect(wrapper.find('br')).to.have.length(6);
-  });
-  it('renders six options ', () =>{
-    const wrapper = shallow(<EventForm {...props}/>);
-    expect(wrapper.find('option')).to.have.length(6);
-  });
-  it('renders one select ', () =>{
-    const wrapper = shallow(<EventForm {...props}/>);
-    expect(wrapper.find('select')).to.have.length(1);
   });
   it('renders one textarea ', () =>{
     const wrapper = shallow(<EventForm {...props}/>);
