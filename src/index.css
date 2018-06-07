@@ -1,18 +1,31 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+
 body{
-	width: auto;
-	margin:0;
+  width: 100%;
 	padding: 0 !important;
-	position: relative;
-	background: #43C6AC;
-	background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);
-	background: linear-gradient(to right, #F8FFAE, #43C6AC)
+  z-index:1;
+ background-color: whitesmoke;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
+.container{
+  width: 100%;
+	padding: 0 !important;
+  z-index:1;
+  background-image: white;
+  margin:0 10% 10% 7%;
+
+}
+
+
+
  /* Navbar styling */
  .navbar{
   width: 100%;
 	padding-top: 1%;
-	background-color: #143B33;
-  box-shadow: 0px 10px 3px #1B2F1C;
+	background-color:grey;
+  box-shadow: 0px 10px 3px  white;
 }
 .navbar-brand{
 	font-family: 'Amiri', serif;
@@ -20,32 +33,40 @@ body{
 	font-family: 'Alex Brush', cursive;
   font-size: 120%;
 }
+.nav{
+  padding: 0 5px 0 800px;
+
+}
 .nav-item {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
   font-family: 'Amiri', serif;
 	font-family: 'Bangers', cursive;
 	font-family: 'Alex Brush', cursive;
   font-size: 120%;
   text-align: right;
-  padding-left: 80%;
-
-}
-.nav-item li {
-  float: right;
-}
-
-.nav-item li a {
   color: white;
   text-decoration: none;
-  
-}
-.nav-item li  a:hover{
-  color: green;
-}
+  margin:0 0 0 30px;
+  float: right;
+ 
 
+}
+.nav, li a{
+  text-decoration: none;
+  color: black;
+  background-color: grey;
+}
+.navbardropdown{
+  margin:0 75%;
+}
+.dropdown-item{
+  text-decoration: none;
+  list-style-type: none;
+}
+.dropdown-item:hover{
+  color:grey;
+}
 
 
 
@@ -53,11 +74,29 @@ body{
 
 
 /* Form styling */
+.logincard{
+  box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 50px 350px 0px 400px;
+    text-align: center;
+    background-color: white;
+    padding-bottom: 5%;
+}
+.registerCard{
+  box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 50px 350px 0px 400px;
+  text-align: center;
+  background-color: white;
+}
 .form {
   width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+}
+label {
+  color:white;
 }
 .form .form-control {
   position: relative;
@@ -79,56 +118,200 @@ body{
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.password {
+  padding:20px 20px 10px 20px;
+  font-size: 15px;
+}
+.editform{
+  max-width:100%;
+}
 
 /* The dashboard */
-
-
-.container {
-  position: relative;
-  margin-top: 1%;
-  width: 100%;
-  height : 96vh;
+.modal-dialog{
+  margin:200px 0 200px 0;
+}
+.modal-content{
   background-color: white;
 }
 
 .add-button {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  background: red;
-  border: 3px solid black;
+  border-radius: 60%;
+  width: 60px;
+  height: 60px;
+  background: grey;
   text-align: center;
+  color: white;
+  position: relative;
+  font-size: 35px;
+  margin-left:2%;
 }
-
+.add-button a:hover{
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-dialog{
+  background-color: white;
+  margin:20% 0% 0% 0%;
+  z-index: 1;
+}
+#myModal{
+  background-color: rgb(63, 61, 61);
+  opacity: 0.9;
+  position: fixed;
+}
+#myMod{
+  background-color: grey;
+  padding:0 20px 0px 20px;
+  opacity: 0.9;
+}
+  
 .btn {
   max-width: 200px;
   display: inline;
   padding: 14px 20px;
 }
-
-.card-header {
-  text-align: center;
-};
-
-.card-deck .card {
-  min-width: 220px;
+.btn a:hover{
+  color: black;
 }
-.list {
+.card {
+  max-width: 350px;
   text-align: center;
+  margin:0px 5px 10px 5px;
+  padding:0 0 0 0 ;
 }
-.list-item{
+.card:hover{
+  box-shadow: 0 4px 30px 0 black;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.card-title {
+  font-size: 20px;
+  color:grey;
+  
+}
+.card-text{
+  font-size:15px;
+  color:grey;
+}
+.middle{
+  height: 5%;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  padding: 0px 16px;
+}
+.card-top {
+  height: 200px;
+  border-radius: 4px 4px 0px 0px;
+  border: 1px solid #ddd;
+  padding: 0px 50px;
+  background-image: url(./events.jpg);
+  background-position: center;
+  color: white;
+  
+}
+.card-h1{
+  font-size:20px;
+}
+.bottom {
+  height: 40%;
+  border-radius: 0px 0px 4px 4px;
+  border: 1px solid #ddd;
+}
+.card-body, .gly{
+  padding:20px 10px 10px 10px;
+  font-size: 15px;
+  
+}
+.search{
+  text-align: center;
+  font-size: 50px;
+  color: black;
+
+}
+/* Rsvp form */
+.rsvpcard{
+    box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    padding: 0 50px 0px 80px;
+    margin: 50px 350px 0px 400px;
+    text-align: center;
+    background-color: #ffffff;
+}    
+.singleEventCard{
+  max-width: 80%;
+  background-color: white;
+  height:400px;
+  margin-left: 131px;
+}
+.singleEventCard:hover{
+  box-shadow: 0 4px 19px 0 black;
+  transition: 0.3s;
+}
+.btn-rsvp{
+  max-width:350px;
+  margin-left:30%;
+}
+.eventimage{
+  max-width:100%;
+
+}
+.rsvp{
+  text-align: right;
+  padding: 0 20% 0 0;
+  margin:0 0 10% 0;
+  height: 100px;
+  overflow-y: scroll;
+}
+.btn-rsvp{
+  text-decoration: none;
+  margin-top: 100px;
+
+  
+}
+.addEvent{
+  text-align: center;
+  margin: 2% 10% 10% 30%;
+  position: fixed;
+}
+
+.modal-footer{
+  padding: 10px;
+}
+
+.page-item{
+  color: blue;
+}
+ .navpaginate{
+  margin-left: 30%;
+}
+.event{
+  text-align:center;
+  margin-right: 250px;
+  margin-left:514px;
+  margin-top:-163px;
+  position: sticky;
+}
+.date{
+  margin-left:14px;
+}
+.rowy{
+  position: absolute;
+  bottom: 6px;
+  height: 0px;
+  width: 90%;
+
+}
+.rsvpModal{
+  position:top;
+}
+.listRsvp{
+  margin-right:70px;
+}
+  
+/*
+.eventdetails{
+  text-decoration: none;
   list-style-type: none;
-}
-.border-top {
-   border-top: 1px solid #e5e5e5;
-   }
-.border-bottom {
-   border-bottom: 1px solid #e5e5e5; 
-  }
-
-.box-shadow { 
-  box-shadow: 0 .25rem .75rem;
-  background-color: white
-}
-
+} */
 
