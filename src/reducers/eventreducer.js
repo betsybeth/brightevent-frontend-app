@@ -56,7 +56,8 @@ export default (state = initialState.entities.events, action) => {
         message: action.payload.data.results,
         pages: action.payload.data.pages,
         nextPage: action.payload.data.next_page,
-        prevPage: action.payload.data.prev_page
+        prevPage: action.payload.data.prev_page,
+        isSearch:false
       }
     };
   case 'PUBLIC_EVENTS_FULFILLED':
@@ -78,7 +79,7 @@ export default (state = initialState.entities.events, action) => {
       request: {
         ...state.request,
         id:action.payload.data.id,
-        message:action.payload.data
+        message:action.payload.data,
       }
     };  
   case 'ONE_PUBLIC_EVENT_FULFILLED':
@@ -111,7 +112,7 @@ export default (state = initialState.entities.events, action) => {
         ...state.request,
         pages: action.payload.data.pages,
         nextPage: action.payload.data.next_page,
-        prevPage: action.payload.data.prev_page
+        prevPage: action.payload.data.prev_page,
       }
     };  
   

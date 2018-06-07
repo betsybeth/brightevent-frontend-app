@@ -21,6 +21,7 @@ export default (state = initialState.entities.user, action) => {
       data: {
         ...state.data,
         token: action.payload.data.token,
+        authenticated:true,
         message: action.payload.data.message,
       }
     };

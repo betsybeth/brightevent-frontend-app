@@ -33,7 +33,7 @@ class SingleEvent extends  Component {
         email:this.state.email};
       const {id} = this.props.match.params;
       this.props.addRsvp(id, rsvpInfo).then((response) =>{
-        toast.success(response.value.data.mesage);
+        toast.success(response.value.data.message);
         this.setState({
           displayRsvpModal: 'none'
         });

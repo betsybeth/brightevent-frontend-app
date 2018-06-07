@@ -66,12 +66,12 @@ class Dashboard extends Component {
       name: this.state.eventsInfo.name,
       description: this.state.eventsInfo.description,
       category: this.state.eventsInfo.category,
-      date_of_event: moment(this.state.eventsInfo.date_of_event).format('YYYY-MM-DD', 'h:mm:ss a'),
+      date_of_event: moment(this.state.eventsInfo.date_of_event).format('YYYY-MM-DD'),
       location: this.state.eventsInfo.location
     };
     // dispatching an action to enable completion of promise first.
     this.props.createEvent(eventsDetails).then((response) => {
-      toast.success(response.value.data.mesage);
+      toast.success(response.value.data.message);
       // state is updated to none to close the modal
       this.setState({
         displayAddModal: 'none'
@@ -98,7 +98,7 @@ class Dashboard extends Component {
       name: this.state.editData.name,
       description: this.state.editData.description,
       category: this.state.editData.category,
-      date_of_event: moment(this.state.editData.date_of_event).format('YYYY-MM-DD', 'h:mm:ss a'),
+      date_of_event: moment(this.state.editData.date_of_event).format('YYYY-MM-DD'),
       location: this.state.editData.location
 
     };
@@ -130,7 +130,7 @@ class Dashboard extends Component {
     e.preventDefault();
     if(id) {
       this.props.deleteEvent(id).then((response) => {
-        toast.success(response.value.data.mesage);
+        toast.success(response.value.data.message);
         this.props.getEvents();
       }).catch((error) => {
         if (error.response) {
@@ -179,7 +179,7 @@ class Dashboard extends Component {
       toast.success(response.value.data.mesage);
     }).catch((error) => {
       if (error.response) {
-        toast.error(error.response.data.message); } }):
+        return error; } }):
       this.props.getEvents();
   }
   render(){

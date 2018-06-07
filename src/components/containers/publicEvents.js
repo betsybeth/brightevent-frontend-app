@@ -20,7 +20,7 @@ class PublicEvents extends Component {
       toast.success(response.value.data.mesage);
     }).catch((error) => {
       if (error.response) {
-        toast.error(error.response.data.message); } }):
+        return error; } }):
       this.props.publicEvents();
   }
   handleLogout = () => {
@@ -44,9 +44,16 @@ class PublicEvents extends Component {
           <h5 className="card-h1">{dataItem.name}</h5>
         </div>  
         <div className='middle'>
-          <h6 className="card-text">{dataItem.date_of_event}</h6>
+          <h6 className="card-text">{dataItem.date_of_event.split('00')[0]}</h6>
         </div> 
-        <p></p> 
+        <div className='bottom'>
+          <p className="card-text">{dataItem.description}</p>
+          <p className="card-text">{dataItem.category}</p>
+          <p className="card-text">{dataItem.location}</p>     
+          <p>
+            <Link to={`/singleEvent/${dataItem.id}`}>View Event</Link>
+          </p>           
+        </div> 
       </div>
     )):<div className='search'><h4> Event not available </h4> </div>;
     const search = data && data.length >= 1 ? data.map((dataItem) => (
@@ -55,7 +62,7 @@ class PublicEvents extends Component {
           <h5 className="card-h1">{dataItem.name}</h5>
         </div>  
         <div className='middle'>
-          <h6 className="card-text">{dataItem.date_of_event}</h6>
+          <h6 className="card-text">{dataItem.date_of_event.split('00')[0]}</h6>
         </div>  
         <div className='bottom'>
           <p className="card-text">{dataItem.description}</p>

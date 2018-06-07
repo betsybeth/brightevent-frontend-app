@@ -14,20 +14,13 @@ const EditEventForm = (props) => {
           <label>Decription</label><br />
           <textarea className="form-control" name="description" value={props.description} onChange={props.handleEditEventChange} rows="3" cols="50"></textarea>
           <label>Categories</label><br />
-          <select className="form-control" name="category" value={props.category} onChange={props.handleEditEventChange}>
-            <option value="">select category</option>
-            <option value="Business">Business</option>
-            <option value="Education">Education</option>
-            <option value="Technology">Technology</option>
-            <option value="Social">Social</option>
-            <option value="Music">Music</option>
-          </select>
+          <input  className="form-control" name="category" value={props.category} onChange={props.handleEditEventChange} placeholder="category"/>
           <label>Date of Event</label><br />
-          <input className="form-control" type="datetime-local" name="date_of_event" value={props.date_of_event} onChange={props.handleEditEventChange} />
+          <input className="form-control" type="date" name="date_of_event" value={props.date_of_event} onChange={props.handleEditEventChange} />
           <label>Location</label><br />
           <input className="form-control" type="text" name="location" value={props.location} onChange={props.handleEditEventChange} placeholder="Location" /><br />
           <div className='col-sm-12 modal-footer'>
-            <button type="submit" className=" col-sm-6 btn btn-sm btn-success btn-block">Edit Event</button>
+            <button type="submit" className=" col-sm-6 btn btn-sm btn-primary btn-block">Update Event</button>
             <button type="button" className="col-sm-6 btn btn-secondary" data-dismiss="modal" onClick={props.handleCloseModal}>Close</button>
           </div>
         </form>

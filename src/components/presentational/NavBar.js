@@ -9,10 +9,10 @@ const Navbar = (props) => {
       {props.isLoggedIn ? 
         <div className="navbardropdown dropdown">        
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Accounts
+    Events
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <p><Link  className="dropdown-item" to='/dashboard'>Dashboard</Link></p>
+            <p><Link  className="dropdown-item" to='/dashboard'>My Events</Link></p>
             <p><Link className="dropdown-item" to="/public-events">Public Events</Link></p>
             <p><Link  className="dropdown-item" to='/' onClick={props.handleLogout}>Logout</Link></p>
           </div>

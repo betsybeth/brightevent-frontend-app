@@ -33,8 +33,8 @@ class Register extends Component {
       confirm: this.state.registerData.confirm
     };
     this.props.registerUser(user).then((response) => {
-      this.props.history.push('/dashboard');
-      toast.success(response.value.data.mesage);
+      this.props.history.push('/login');
+      toast.success(response.value.data.message);
     }).catch((error) => {
       if (error.response) {
         toast.error(error.response.data.message);
