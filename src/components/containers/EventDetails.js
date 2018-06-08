@@ -47,12 +47,12 @@ class EventDetails extends  Component {
                 <h6 className="card-text">{events.location}</h6>
                 <div className="rsvp">
                   <h3 className="listRsvp">Attendees </h3>
-                  { result &&  result.map((eventdetail) => {
+                  { result && result.length >=1 ? result.map((eventdetail) => {
                     return(        
                       <h6 className="listRsvp">{eventdetail.email}</h6>
              
                     );
-                  })} </div>
+                  }):<h6>No rsvp</h6>} </div>
               </div>
             </div>
           </div>
