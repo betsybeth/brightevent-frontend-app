@@ -128,7 +128,7 @@ class Dashboard extends Component {
   }
   // handles the glyphicon for edit to enable popping up of data 
   handleClick = (event, editData) => {
-    // event.preventDefault()   
+    event.preventDefault();   
     this.setState({editData});
     
   } 
@@ -174,7 +174,8 @@ class Dashboard extends Component {
   handleLogout = () => {
     this.props.logoutUser().then((response)=> {
       localStorage.clear();
-      toast.success(response.value.data.message);  
+      toast.success(response.value.data.message);
+      this.props.history.push('/');  
     }).catch((error) => {
       if (error.response) {
         toast.error(error.response.data.message); } });
@@ -191,6 +192,7 @@ class Dashboard extends Component {
       this.props.getEvents();
   }
   render(){
+
     return(
       <div>
         <ToastContainer />  
