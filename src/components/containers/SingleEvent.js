@@ -38,7 +38,8 @@ class SingleEvent extends  Component {
     handleLogout = () => {
       this.props.logoutUser().then((response)=> {
         localStorage.clear();
-        toast.success(response.value.data.message);  
+        toast.success(response.value.data.message); 
+        this.props.history.push('/');   
       }).catch((error) => {
         if (error.response) {
           toast.error(error.response.data.message); } });
