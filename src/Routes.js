@@ -21,7 +21,7 @@ const Routes = () => (
     <PrivateRoute path="/edit-event" component={EditEventForm} />
     <PrivateRoute path="/eventDetails/:id" component={EventDetails} />
     <PrivateRoute path="/public-events" component={PublicEvents} />
-    <PrivateRoute path="/singleEvent/:id" component={SingleEvent} />
+    <Route path="/singleEvent/:id" component={SingleEvent} />
     
     
 
