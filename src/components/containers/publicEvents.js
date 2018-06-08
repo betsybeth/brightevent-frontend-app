@@ -26,7 +26,8 @@ class PublicEvents extends Component {
   handleLogout = () => {
     this.props.logoutUser().then((response)=> {
       localStorage.clear();
-      toast.success(response.value.data.message);  
+      toast.success(response.value.data.message); 
+      this.props.history.push('/');   
     }).catch((error) => {
       if (error.response) {
         toast.error(error.response.data.message); } });
@@ -34,28 +35,7 @@ class PublicEvents extends Component {
 
   render(){ 
     const data  =  this.props.Event.data;
-    const isSearch=this.props.Event.request.isSearch;
-    const pages=this.props.Event.request.pages;
-    const nextPage=this.props.Event.request.nextPage;
-    const prevPage=this.props.Event.request.prevPage;
-    const eventsAll = data && data.length >= 1 ? data.map((dataItem) => (   
-      <div className="card col-md-4 col-sm-4" key={dataItem.id}>
-        <div className="card-top">
-          <h5 className="card-h1">{dataItem.name}</h5>
-        </div>  
-        <div className='middle'>
-          <h6 className="card-text">{dataItem.date_of_event.split('00')[0]}</h6>
-        </div> 
-        <div className='bottom'>
-          <p className="card-text">{dataItem.description}</p>
-          <p className="card-text">{dataItem.category}</p>
-          <p className="card-text">{dataItem.location}</p>     
-          <p>
-            <Link to={`/singleEvent/${dataItem.id}`}>View Event</Link>
-          </p>           
-        </div> 
-      </div>
-    )):<div className='search'><h4> Event not available </h4> </div>;
+    const { pages, nextPage, prevPage } = this.props.Event.request;    
     const search = data && data.length >= 1 ? data.map((dataItem) => (
       <div className="card col-sm-4" key={dataItem.id}>
         <div className="card-top">
@@ -65,14 +45,15 @@ class PublicEvents extends Component {
           <h6 className="card-text">{dataItem.date_of_event.split('00')[0]}</h6>
         </div>  
         <div className='bottom'>
-          <p className="card-text">{dataItem.description}</p>
+          <p className="card-text">{dataItem.description.slice(0, 50)}</p>
           <p className="card-text">{dataItem.category}</p>
           <p className="card-text">{dataItem.location}</p>     
           <p>
             <Link to={`/singleEvent/${dataItem.id}`}>View Event</Link>
           </p>           
         </div></div>
-    )): <div className="search"> No match</div>;
+    )): 
+      <div className="search">No event available</div>;
 
     const handlePublicPagination = (url, e) => {
       e.preventDefault();  
@@ -113,7 +94,7 @@ class PublicEvents extends Component {
                 null}</div>
           </div>
           <div>
-            {isSearch ? search : eventsAll}
+            {search}
           </div>  
         
 
