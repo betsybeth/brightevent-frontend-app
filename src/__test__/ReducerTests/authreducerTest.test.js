@@ -37,7 +37,7 @@ describe ('Authentication Reducers', () => {
         authenticated: false, 
         error: '' },
       request: { 
-        loading: false, 
+        loading: false,
         error: '' },
       data: { 
         token: 'awesome',
@@ -48,39 +48,7 @@ describe ('Authentication Reducers', () => {
     const newState = AuthReducer(initialState, action);
     expect(newState).to.deep.equal(expectedState);
   });
-  it('CASE: REGISTER_USER_REJECTED', () => {
-
-    const action = {
-      type: 'REGISTER_USER_REJECTED',
-      payload: {
-        response: {
-          data: {
-            token: 'null',
-            message: 'wrong data'
-          }
-        }
-      }  
-    };
-
-
-    const expectedState = {
-      user: {
-        token: '', 
-        message: '', 
-        authenticated: false, 
-        error: '' 
-      },
-      request: { 
-        loading: true, 
-        error: true 
-      },
-      data: { 
-        message: 'wrong data' 
-      } 
-    };
-    const newState = AuthReducer(initialState, action);
-    expect(newState).to.deep.equal(expectedState);
-  });
+  
   it('CASE:LOGIN_USER_FULFILLED', () => {
     const action = {
       type: 'LOGIN_USER_FULFILLED',
@@ -111,36 +79,7 @@ describe ('Authentication Reducers', () => {
     const newState = AuthReducer(initialState, action);
     expect(newState).to.deep.equal(expectedLoginState);
   });
-  it('CASE: LOGIN_USER_REJECTED', () => {
 
-    const action = {
-      type: 'LOGIN_USER_REJECTED',
-      payload: {
-        response: {
-          data: {
-            message: 'invalid login'
-          }
-        }
-      }  
-    };
-  
-  
-    const expectedState = {
-      user: { 
-        token: '', 
-        message: '', 
-        authenticated: false, 
-        error: '' },
-      request: { 
-        loading: false, 
-        error: true },
-      data: { 
-        message: 'invalid login' 
-      }
-    };   
-    const newState = AuthReducer(initialState, action);
-    expect(newState).to.deep.equal(expectedState);
-  });
   it('CASE: LOGOUT_USER_FULFILLED', () => {
 
     const action = {
