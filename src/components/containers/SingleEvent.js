@@ -10,8 +10,7 @@ class SingleEvent extends  Component {
   constructor(props){
     super(props);
     this.state = {
-      email:'',
-      displayRsvpModal:'none'
+      email:''
     };
   } 
   componentDidMount(){
@@ -22,10 +21,6 @@ class SingleEvent extends  Component {
     handleRsvpChange = (event) => { 
       this.setState({email: event.target.value});
     }
-    
-    handleOpenModal = () => {
-      this.setState({displayRsvpModal:'block'});
-    }
   
     handleRsvpSubmit = (event) => {       
       event.preventDefault();
@@ -34,9 +29,6 @@ class SingleEvent extends  Component {
       const {id} = this.props.match.params;
       this.props.addRsvp(id, rsvpInfo).then((response) =>{
         toast.success(response.value.data.message);
-        this.setState({
-          displayRsvpModal: 'none'
-        });
       }).catch((error) => {
         if (error.response) {
           toast.error(error.response.data.message); } });
@@ -46,7 +38,8 @@ class SingleEvent extends  Component {
     handleLogout = () => {
       this.props.logoutUser().then((response)=> {
         localStorage.clear();
-        toast.success(response.value.data.message);  
+        toast.success(response.value.data.message); 
+        this.props.history.push('/');   
       }).catch((error) => {
         if (error.response) {
           toast.error(error.response.data.message); } });
@@ -83,7 +76,7 @@ class SingleEvent extends  Component {
 
                   <div className="rowy">
          
-                    <button type="button"  className="btn-rsvp btn-lg fluid btn-success btn-block col-md-4 " data-toggle="modal" data-target="#rsvpmodal" onClick={this.handleOpenModal}>
+                    <button type="button"  className="btn-rsvp btn-lg fluid btn-success btn-block col-md-4 " data-toggle="modal" data-target="#rsvpmodal">
            Attend
                     </button> 
                     <div className="modal fade" id="rsvpmodal">

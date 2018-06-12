@@ -16,7 +16,7 @@ const EditEventForm = (props) => {
           <label>Categories</label><br />
           <input  className="form-control" name="category" value={props.category} onChange={props.handleEditEventChange} placeholder="category"/>
           <label>Date of Event</label><br />
-          <input className="form-control" type="date" name="date_of_event" value={props.date_of_event} onChange={props.handleEditEventChange} />
+          <input className="form-control" type="text" name="date_of_event" value={props.date_of_event} onChange={props.handleEditEventChange} />
           <label>Location</label><br />
           <input className="form-control" type="text" name="location" value={props.location} onChange={props.handleEditEventChange} placeholder="Location" /><br />
           <div className='col-sm-12 modal-footer'>

@@ -1,6 +1,7 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import { Switch, Route } from 'react-router';
 import Login from './components/containers/Login';
+import PrivateRoute from './components/containers/PrivateRoute';
 import Register from './components/containers/Register';
 import Dashboard from './components/containers/Dashboard';
 import EditEventForm from './components/presentational/EditEventForm';
@@ -16,10 +17,10 @@ const Routes = () => (
     <Route exact path="/" component={PublicEvents} />
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
-    <Route path="/dashboard" component={Dashboard} />
-    <Route path="/edit-event" component={EditEventForm} />
-    <Route path="/eventDetails/:id" component={EventDetails} />
-    <Route path="/public-events" component={PublicEvents} />
+    <PrivateRoute path="/dashboard" component={Dashboard} />
+    <PrivateRoute path="/edit-event" component={EditEventForm} />
+    <PrivateRoute path="/eventDetails/:id" component={EventDetails} />
+    <PrivateRoute path="/public-events" component={PublicEvents} />
     <Route path="/singleEvent/:id" component={SingleEvent} />
     
     

@@ -132,7 +132,6 @@ export default (state = initialState.entities.events, action) => {
       request: {
         ...state.request,
         message: action.payload.data.result,
-        isSearch:true
       }
     };
   case 'SEARCH_PUBLIC_EVENT_FULFILLED':

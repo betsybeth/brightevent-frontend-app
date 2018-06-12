@@ -21,6 +21,7 @@ class EventDetails extends  Component {
     const  events  = this.props.Event.request.message;
     const isLoggedIn = this.props.auth.data.authenticated;
     const result = this.props.Event.rsvp.info;
+    
     return(
       <div>
         { isLoggedIn ?
@@ -46,12 +47,12 @@ class EventDetails extends  Component {
                 <h6 className="card-text">{events.location}</h6>
                 <div className="rsvp">
                   <h3 className="listRsvp">Attendees </h3>
-                  { result &&  result.map((info) => {
+                  { result && result.length >=1 ? result.map((eventdetail) => {
                     return(        
-                      <h6 className="listRsvp">{info.email}</h6>
+                      <h6 className="listRsvp">{eventdetail.email}</h6>
              
                     );
-                  })} </div>
+                  }):<h6>No rsvp</h6>} </div>
               </div>
             </div>
           </div>
