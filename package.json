@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "axios": "^0.18.0",
     "babel": "^6.23.0",
     "babel-eslint": "^8.2.3",
