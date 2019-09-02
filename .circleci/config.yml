@@ -1,13 +1,15 @@
-version: 2
-
+version: 2.1
 jobs: 
   build:
      working_directory: ~/brightevent-frontend-app
      steps: 
       - checkout
-      - run :
+      - run:
           name: install dependencies
           command: yarn install
+      - run: 
+          name: run tests
+          command: yarn test
 workflows:
   version: 2
   commit:
