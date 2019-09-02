@@ -7,8 +7,19 @@ jobs:
      steps: 
       - checkout
       - run:
-          name: install dependencies
-          command: yarn install
+         name: install yarn
+         command: curl -o- -L https://yarnpkg.com/install.sh | bash
+      - restore-cache: 
+         name: restore yarn cache
+         keys: 
+           - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+        name: install dependencies
+        command: yarn install
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths: ~/.cache/yarn    
       - run: 
           name: run tests
           command: yarn test
