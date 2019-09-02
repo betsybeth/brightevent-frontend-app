@@ -1,0 +1,15 @@
+version: 2
+
+jobs: 
+  build:
+     working_directory: ~/brightevent-frontend-app
+     steps: 
+      - checkout
+      - run :
+          name: install dependencies
+          command: yarn install
+workflows:
+  version: 2
+  commit:
+     jobs:
+      - build 
