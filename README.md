@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/betsybeth/brightevent-frontend-app.svg?branch=develop)](https://travis-ci.org/betsybeth/brightevent-frontend-app)
 [![Coverage Status](https://coveralls.io/repos/github/betsybeth/brightevent-frontend-app/badge.svg?branch=develop)](https://coveralls.io/github/betsybeth/brightevent-frontend-app?branch=develop)
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Taa/brightevents)
 # brightevent-frontend-app
 An React-Redux  application for events
 
