@@ -62,10 +62,11 @@
     "eject": "react-scripts eject",
     "test": "NODE_ENV=test nyc mocha  --require mock-local-storage --compilers babel-core/register --reporter spec \"src/**/*.test.js\"",
     "lint": "eslint src",
+    "regressions": "npx percy exec -- node snapshots.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^6.3.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
